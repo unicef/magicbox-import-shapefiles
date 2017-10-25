@@ -1,8 +1,8 @@
 ## Import shapefiles to postgres
-#### This is a component of Magic Box
+#### This is a component of [Magic Box](https://github.com/unicef/magicbox/wiki)
 
-### Set up
-Prerequisite: (download_shapefiles_from_gadm)[https://github.com/unicef/download_shapefiles_from_gadm/]
+### Prerequisite
+Prerequisite: [download_shapefiles_from_gadm](https://github.com/unicef/download_shapefiles_from_gadm/)
 
 ### Postgres
     sudo apt-get update
@@ -10,3 +10,9 @@ Prerequisite: (download_shapefiles_from_gadm)[https://github.com/unicef/download
     sudo apt-get install postgis*
     sudo -i -u postgres
     CREATE USER user_name SUPERUSER;
+
+### Setup
+    git clone git@github.com:unicef/import_shapefiles_to_postgres.git
+    cd import_shapefiles_to_postgres
+    cp config-sample.js config.js
+    node main.js -s gadm2-8
