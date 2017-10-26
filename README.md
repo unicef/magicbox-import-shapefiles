@@ -14,5 +14,6 @@ Prerequisite: [download_shapefiles_from_gadm](https://github.com/unicef/download
 ### Setup
     git clone git@github.com:unicef/import_shapefiles_to_postgres.git
     cd import_shapefiles_to_postgres
+    npm install
     cp config-sample.js config.js
     node main.js -s gadm2-8
