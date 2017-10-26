@@ -1,11 +1,8 @@
 module.exports = {
-    // shapefile_dir: './data/shapefiles/',
-    shapefile_dir: '../../magicbox2/shapefile-ingest/data/shapefiles/',
+    shapefile_dir: './data/shapefiles/',
     pg_config: {
-      database: 'all_countries_one_db',
-      database_all_counties_one_table: 'all_countries_one_table',
+      database: 'all_countries_one_table',
       user: 'postgres', //env var: PGUSER
-      connectionString: 'postgres://localhost:5432/all_countries',
       password: 'password', //env var: PGPASSWORD
       host: 'localhost', // Server hosting the postgres database
       port: 5432, //env var: PGPORT

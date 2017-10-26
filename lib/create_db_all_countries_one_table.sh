@@ -3,7 +3,7 @@
 
 # Check if database exists...
 if [ -z $(psql -lqt | cut -d \| -f 1 | grep $1) ]; then
-	echo "Database doesn't exist, creating it now..."
+	echo "Database doesn't exist, creating it now...$1"
 	createdb $1
 	psql $1 -c "CREATE EXTENSION postgis;"
 fi
@@ -27,6 +27,6 @@ else
 	;"`
   `psql $1 -c "CREATE INDEX ON $1 USING GIST (geom);"`
 
-
-  shp2pgsql -s 4326 -D -I $3 $1 | psql $1
+  shp2pgsql -s 4326 -a $3 $1| psql $1
+  # shp2pgsql -s 4326 -D -I $3 $1 | psql $1
 fi
