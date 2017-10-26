@@ -1,5 +1,5 @@
 module.exports = {
-    shapefile_dir: './data/shapefiles/',
+    shapefile_dir: '../download_shapefiles_from_gadm/data/shapefiles/',
     pg_config: {
       database: 'all_countries_one_table',
       user: 'postgres', //env var: PGUSER
