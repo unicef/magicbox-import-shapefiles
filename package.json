@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "arg-parse": "^1.0.0",
     "bluebird": "^3.5.1",
     "child_process": "^1.0.2",
     "csv-load-sync": "^1.0.0",
