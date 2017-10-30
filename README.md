@@ -1,6 +1,8 @@
 ## Import shapefiles to postgres
 #### This is a component of [Magic Box](https://github.com/unicef/magicbox/wiki)
 
+This code creates a database and table, both named all_countries_one_table, and appends the highest admin level shapefile per country to the table.
+
 ### Prerequisite
 Prerequisite: [download_shapefiles_from_gadm](https://github.com/unicef/download_shapefiles_from_gadm/)
 
