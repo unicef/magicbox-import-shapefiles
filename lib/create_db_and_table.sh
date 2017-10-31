@@ -9,24 +9,24 @@ if [ -z $(psql -lqt | cut -d \| -f 1 | grep $1) ]; then
 fi
 
 
-test_table_exists=`psql $1 -c "select * from pg_tables where schemaname='public'" | grep $1`
+test_table_exists=`psql $1 -c "select * from pg_tables where schemaname='public'" | grep $2`
 
 if [ "$test_table_exists" ]; then
-  echo "Table exists $1"
-  shp2pgsql -s 4326 -a $3 $1| psql $1
+  echo "Table exists $4 $2"
+  shp2pgsql -s 4326 -a $4 $2 | psql $1
 else
 	echo "Start get columns..."
 	columns=$(node './lib/get_all_geo_property_fields')
-  echo "Table does NOT exist"
-	`psql $1 -c "CREATE TABLE $1
+  echo "Table does NOT exist $columns"
+	`psql $1 -c "CREATE TABLE $2
 	(
 	  gid serial NOT NULL PRIMARY KEY,
 	  geom geometry(MultiPolygon,4326),
 		$columns
 	)
 	;"`
-  `psql $1 -c "CREATE INDEX ON $1 USING GIST (geom);"`
+  `psql $1 -c "CREATE INDEX ON $2 USING GIST (geom);"`
 
-  shp2pgsql -s 4326 -a $3 $1| psql $1
+  shp2pgsql -s 4326 -a $4 $2 | psql $1
   # shp2pgsql -s 4326 -D -I $3 $1 | psql $1
 fi
