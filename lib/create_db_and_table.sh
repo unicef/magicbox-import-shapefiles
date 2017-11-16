@@ -26,7 +26,13 @@ else
 	)
 	;"`
   `psql $1 -c "CREATE INDEX ON $2 USING GIST (geom);"`
-
+  `psql $1 -c "CREATE INDEX ON $2 (id_0);"`
+  `psql $1 -c "CREATE INDEX ON $2 (id_1);"`
+	`psql $1 -c "CREATE INDEX ON $2 (id_2);"`
+  `psql $1 -c "CREATE INDEX ON $2 (id_3);"`
+  `psql $1 -c "CREATE INDEX ON $2 (id_4);"`
+  `psql $1 -c "CREATE INDEX ON $2 (id_5);"`
+  `psql $1 -c "CREATE INDEX ON $2 (iso);"`
   shp2pgsql -s 4326 -a $4 $2 | psql $1
   # shp2pgsql -s 4326 -D -I $3 $1 | psql $1
 fi

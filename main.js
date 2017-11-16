@@ -1,5 +1,6 @@
 // Imports highest granularity of admin per country to a single psql database.
 // node main.js -s gadm2-8 -l highest
+// node main.js -s gadm2-8 -l all
 const config = require('./config');
 const ArgumentParser = require('argparse').ArgumentParser;
 const fs = require('fs');
