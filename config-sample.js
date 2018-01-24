@@ -1,5 +1,5 @@
 module.exports = {
-    shapefile_dir: '../download_shapefiles_from_gadm/data/shapefiles/',
+    shapefile_dir: '/app/magicbox-download-shapefiles/data/shapefiles/',
     pg_config: {
       database: 'all_countries_one_table',
       user: 'postgres', //env var: PGUSER
@@ -9,5 +9,4 @@ module.exports = {
       max: 10, // max number of clients in the pool
       idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
     },
-
 }
