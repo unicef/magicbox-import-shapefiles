@@ -33,6 +33,11 @@ else
   `psql $1 -c "CREATE INDEX ON $2 (id_4);"`
   `psql $1 -c "CREATE INDEX ON $2 (id_5);"`
   `psql $1 -c "CREATE INDEX ON $2 (iso);"`
+
+	`psql $1 -c "CREATE INDEX ON $2 (WCOLGEN02_);"`
+  `psql $1 -c "CREATE INDEX ON $2 (DPTO);"`
+  `psql $1 -c "CREATE INDEX ON $2 (admin_id);"`
+
   shp2pgsql -s 4326 -a $4 $2 | psql $1
   # shp2pgsql -s 4326 -D -I $3 $1 | psql $1
 fi

@@ -1,6 +1,6 @@
 // Imports highest granularity of admin per country to a single psql database.
-// node main.js -s gadm2-8 -l highest
-// node main.js -s gadm2-8 -l all
+// node main.js -s gadm3-6 -l highest
+// node main.js -s gadm3-6 -l all
 const config = require('./config');
 const ArgumentParser = require('argparse').ArgumentParser;
 const fs = require('fs');
@@ -46,9 +46,10 @@ const wanted_files = shapefile_directories.reduce(
       })
       .sort((a, b) => {
         // Sort shapefiles files by admin Level, highest first.
-        let first = a.match(/\d/)[0];
-        let second = b.match(/\d/)[0];
-        return second - first;
+
+        let first = a.replace(/gadm\d\d_/, '').match(/\d/)[0];
+        let second = b.replace(/gadm\d\d_/, '').match(/\d/)[0];
+        return second - first
       });
     }
     return h;
@@ -72,7 +73,6 @@ const wanted_files = shapefile_directories.reduce(
  * @return {Promise} when shapefile has been imported
  */
 function import_shapefiles(files) {
-  console.log(files);
   if (admin_level_table.match(/highest/)) {
     files = files.slice(0, 1);
   }
@@ -102,9 +102,10 @@ function import_admins(file) {
     country.toLowerCase() +
     '_' +
     admin_level +
-    '_gadm2-8 ' +
+    '_gadm3-6 ' +
     shapefile_dir + '/' + country + '/' + file;
-
+    console.log(command)
+    // resolve()
     exec(command, {maxBuffer: 2048 * 2500}, (err, stdout, stderr) => {
       if (err) {
         console.error(err);
