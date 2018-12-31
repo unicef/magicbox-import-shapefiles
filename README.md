@@ -11,7 +11,7 @@ Prerequisite: [download_shapefiles_from_gadm](https://github.com/unicef/download
     sudo apt-get install postgresql postgresql-contrib
     sudo apt-get install postgis*
     sudo -i -u postgres
-    CREATE USER user_name SUPERUSER or sudo -u postgres createuser mfabrikant SUPERUSER
+    CREATE USER user_name SUPERUSER or sudo -u postgres createuser user_name SUPERUSER
 
 ### Setup
     git clone git@github.com:unicef/import_shapefiles_to_postgres.git
