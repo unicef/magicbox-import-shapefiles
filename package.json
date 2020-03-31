@@ -21,7 +21,7 @@
     "readjson": "^1.1.3"
   },
   "devDependencies": {
-    "eslint": "^5.12.0",
-    "eslint-config-google": "^0.9.1"
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
